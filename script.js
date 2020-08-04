@@ -33,5 +33,10 @@ function addTodo(event) {
     todoDiv.appendChild(trashButton);
     //appedn to list
     todoList.appendChild(todoDiv);
-
+    //corect year
+      
 }
+    var data = new Date();
+    var year = data.getFullYear();
+    document.getElementById("year").innerHTML = year;
+
