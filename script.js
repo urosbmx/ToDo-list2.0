@@ -5,9 +5,13 @@ const todoButton = document.querySelector('.todo-button');
 const todoList = document.querySelector('.todo-list');
 
 
+
 //Event listeners
 
 todoButton.addEventListener('click', addTodo);
+todoList.addEventListener('click', deleteCheck);
+// todoList.addEventListener('click', completeCheck);
+
 
 
 //Functions
@@ -33,10 +37,29 @@ function addTodo(event) {
     todoDiv.appendChild(trashButton);
     //appedn to list
     todoList.appendChild(todoDiv);
-    //corect year
-      
+    //clearinput
+    todoInput.value = "";
 }
-    var data = new Date();
-    var year = data.getFullYear();
-    document.getElementById("year").innerHTML = year;
+//Function delete
+function deleteCheck(e) {
+    const iteme = e.target;
+    if (iteme.classList[0] === "trash-btn") {
+        // iteme.remove();
+        const todo = iteme.parentElement;
+        todo.remove();
+    }
 
+    if (iteme.classList[0] === "complete-btn") {
+        const todo = iteme.parentElement;
+        todo.classList.toggle('complited');
+    }
+}
+
+
+
+
+
+
+var data = new Date();
+var year = data.getFullYear();
+document.getElementById("year").innerHTML = year;
